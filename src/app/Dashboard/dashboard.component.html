@@ -1,0 +1,71 @@
+<loader *ngIf="isLoading"></loader>
+<navbar *ngIf="!isLoading"></navbar>
+<h1 class="text-center mt-lg-5" *ngIf="!isLoading">Dashboard</h1>
+
+<div class="global-container" *ngIf="!isLoading">
+  <div class="card login-form">
+    <div class="card-body">
+      <div class="card-text">
+
+        <p class="alert alert-primary alert-dismissible fade show" role="alert" *ngIf="error_msg">{{error_msg}}</p>
+
+        <form>
+          <!-- to error: add class "has-danger" -->
+          <div class="form-group" *ngIf="isUpdating">
+            <label for="id">Id</label>
+            <input type="text" class="form-control form-control-sm" id="id" name="id" [(ngModel)]="id" readonly>
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control form-control-sm" id="name" name="name" [(ngModel)]="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control form-control-sm" id="email" name="email" aria-describedby="emailHelp" [(ngModel)]="email">
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="text" class="form-control form-control-sm" id="age" name="age" [(ngModel)]="age">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" *ngIf="!isUpdating" (click)='addStudent()'>Add</button>
+          <button type="submit" class="btn btn-secondary btn-block float-end" *ngIf="!isUpdating" (click)='cancelAddStudent()'>Cancel</button>
+          <button type="submit" class="btn btn-warning btn-block" *ngIf="isUpdating" (click)='updateStudent()'>Update</button>
+          <button type="submit" class="btn btn-secondary btn-block float-end" *ngIf="isUpdating" (click)='cancelUpdateStudent()'>Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container table-responsive py-5" *ngIf="!isLoading">
+
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Age</th>
+      <th scope="col">Status</th>
+      <th scope="col">Updated at</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let i of studentDetails;let index_no = index">
+      <th scope="row">{{index_no+1}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.age}}</td>
+      <td>{{i.status}}</td>
+      <td>{{i.updated_at |  date :'medium'}}</td>
+      <td>
+        <a (click)="deleteStudent(i.id)" class="text-danger">Delete</a>&nbsp;&nbsp;
+        <a (click)="readyToUpdateStudent(i.id,i.name,i.email,i.age)" class="text-warning">Update</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+

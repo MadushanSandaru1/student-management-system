@@ -1,0 +1,29 @@
+<loader *ngIf="isLoading"></loader>
+
+<h1 class="text-center mt-lg-5" *ngIf="!isLoading">Student Management System</h1>
+
+<div class="global-container" *ngIf="!isLoading">
+  <div class="card login-form">
+    <div class="card-body">
+      <h3 class="card-title text-center">Log in</h3>
+      <div class="card-text">
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="error_msg">{{error_msg}}</div>
+
+        <form>
+          <!-- to error: add class "has-danger" -->
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control form-control-sm" placeholder="admin@student.app" id="email" name="email" aria-describedby="emailHelp" [(ngModel)]="email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <!--            <a href="#" style="float:right;font-size:12px;">Forgot password?</a>-->
+            <input type="password" class="form-control form-control-sm" placeholder="Student@123" id="password" name="password" [(ngModel)]="password">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" (click)='login()'>Log in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

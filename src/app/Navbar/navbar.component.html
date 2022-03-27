@@ -1,0 +1,31 @@
+<nav class="navbar navbar-dark navbar-expand-sm bg-dark">
+  <div class="container">
+    <a class="navbar-brand text-warning">
+      {{logged_user_name}}
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link active">
+            Email: <span class="text-success">{{logged_user_email}}</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active">
+            Age: <span class="text-success">{{logged_user_age}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <button class="btn btn-outline-danger text-danger" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+</nav>
