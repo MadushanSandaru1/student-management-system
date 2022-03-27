@@ -2,6 +2,59 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
+## API Details
+
+### Login - POST
+```
+http://student-api.treinetic.xyz/api/v1.0/user/login
+```
+
+```json
+{
+    "email" : "admin@student.app",
+    "password" : "Student@123"
+}
+```
+
+### Create student - POST
+```
+http://student-api.treinetic.xyz/api/v1.0/student
+```
+
+```json
+{
+
+    "name" : "test",
+    "email" : "tt@aa.com",
+    "age" : "14"
+}
+```
+
+### Update student - PUT
+```
+http://student-api.treinetic.xyz/api/v1.0/student/{id}
+````
+
+```json
+{
+
+    "name" : "test",
+    "email" : "tt@aa.com",
+    "age" : "14"
+}
+```
+
+### Delete student - DELETE
+```
+http://student-api.treinetic.xyz/api/v1.0/student/{id}
+```
+
+### Get all - GET 
+```
+http://student-api.treinetic.xyz/api/v1.0/student
+```
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
